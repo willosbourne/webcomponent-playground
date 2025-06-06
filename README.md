@@ -137,3 +137,11 @@ Each implementation demonstrates how to integrate web components with different 
 - Svelte
 - Angular
 - Vite (for building and development)
+
+## License
+
+This project is licensed under the "THE BEER-WARE LICENSE" (Revision 42):
+
+As long as you retain the license notice, you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
+
+See the [LICENSE](LICENSE) file for details.
