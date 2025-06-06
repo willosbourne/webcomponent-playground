@@ -1,0 +1,41 @@
+{
+  "name": "webcomponent-playground",
+  "version": "1.0.0",
+  "description": "A playground for testing web components in different frontend frameworks",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "start:vanilla": "vite vanilla-js",
+    "start:react": "vite react-app",
+    "start:svelte": "vite svelte-app",
+    "start:angular": "vite angular-app",
+    "build": "vite build",
+    "build:vanilla": "vite build vanilla-js --outDir ../dist/vanilla-js",
+    "build:react": "vite build react-app --outDir ../dist/react-app",
+    "build:svelte": "vite build svelte-app --outDir ../dist/svelte-app",
+    "build:angular": "vite build angular-app --outDir ../dist/angular-app",
+    "preview": "vite preview"
+  },
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "svelte": "^4.2.0",
+    "@angular/common": "^16.2.0",
+    "@angular/compiler": "^16.2.0",
+    "@angular/core": "^16.2.0",
+    "@angular/platform-browser": "^16.2.0",
+    "@angular/platform-browser-dynamic": "^16.2.0",
+    "rxjs": "~7.8.0",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.4",
+    "@sveltejs/vite-plugin-svelte": "^2.4.5",
+    "@angular/compiler-cli": "^16.2.0",
+    "@angular-devkit/build-angular": "^16.2.0",
+    "typescript": "~5.1.3",
+    "vite": "^4.4.9"
+  }
+}
