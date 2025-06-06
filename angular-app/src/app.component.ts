@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
     <div class="app-container" style="display: flex; flex-direction: column; align-items: center;">
       <!-- Using the web component in Angular -->
       <counter-component></counter-component>
-      
+
       <p>This is a demonstration of the counter web component in an Angular application.</p>
       <p>Angular is used to render this container, but the counter itself is a web component.</p>
+
+      <a href="/" style="margin-top: 20px; padding: 8px 16px; background-color: #4ecdc4; color: white; text-decoration: none; border-radius: 4px; font-weight: 500;">Back to Home</a>
     </div>
   `
 })

@@ -14,9 +14,11 @@
 <div class="app-container">
   <!-- Using the web component in Svelte -->
   <counter-component></counter-component>
-  
+
   <p>This is a demonstration of the counter web component in a Svelte application.</p>
   <p>Svelte is used to render this container, but the counter itself is a web component.</p>
+
+  <a href="/" class="back-button">Back to Home</a>
 </div>
 
 <style>
@@ -24,5 +26,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .back-button {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #4ecdc4;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .back-button:hover {
+    background-color: #3dbdb4;
   }
 </style>

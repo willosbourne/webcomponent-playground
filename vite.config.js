@@ -21,6 +21,35 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
               angular: resolve(__dirname, 'angular-app/index.html'),
             };
 
+  // Special configuration for Angular
+  const angularConfig = mode === 'angular' ? {
+    // Ensure Angular compiler is properly handled
+    define: {
+      'ngDevMode': 'false',
+      'ngJitMode': 'true',
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    },
+    // Ensure Angular packages are properly processed
+    optimizeDeps: {
+      include: [
+        '@angular/compiler',
+        '@angular/core',
+        '@angular/common',
+        '@angular/platform-browser',
+        '@angular/platform-browser-dynamic',
+        '@angular/platform-browser/animations'
+      ],
+      // Don't exclude Angular packages
+      exclude: []
+    },
+    // Ensure TypeScript files are properly processed
+    esbuild: {
+      // Handle Angular-specific syntax
+      target: 'es2020',
+      include: /\.(js|ts|tsx)$/
+    }
+  } : {};
+
   return {
     plugins: [
       react(),
@@ -33,6 +62,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     },
     resolve: {
       extensions: ['.mjs', '.js', '.jsx', '.svelte', '.ts', '.tsx', '.json'],
+      // Ensure Angular packages are properly resolved
+      mainFields: ['module', 'main', 'browser']
     },
     optimizeDeps: {
       include: [
@@ -44,5 +75,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         '@angular/platform-browser-dynamic'
       ],
     },
+    // Merge in Angular-specific configuration when in Angular mode
+    ...angularConfig
   };
 });
