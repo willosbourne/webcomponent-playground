@@ -1,13 +1,34 @@
 class CounterComponent extends HTMLElement {
   constructor() {
     super();
-    this.count = 0;
+    this._count = 0;
     this.attachShadow({ mode: 'open' });
+  }
+
+  // Getter and setter for count property
+  get count() {
+    return this._count;
+  }
+
+  set count(value) {
+    this._count = value;
+    this.updateCounter();
+    this.dispatchCountChangeEvent();
   }
 
   connectedCallback() {
     this.render();
     this.setupEventListeners();
+  }
+
+  // Dispatch custom event when count changes
+  dispatchCountChangeEvent() {
+    const event = new CustomEvent('countChange', {
+      detail: { count: this._count },
+      bubbles: true,
+      composed: true
+    });
+    this.dispatchEvent(event);
   }
 
   render() {
@@ -69,13 +90,11 @@ class CounterComponent extends HTMLElement {
     const incrementButton = this.shadowRoot.querySelector('.increment');
 
     decrementButton.addEventListener('click', () => {
-      this.count--;
-      this.updateCounter();
+      this.count = this.count - 1;
     });
 
     incrementButton.addEventListener('click', () => {
-      this.count++;
-      this.updateCounter();
+      this.count = this.count + 1;
     });
   }
 
