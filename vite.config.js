@@ -55,6 +55,9 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       react(),
       svelte(),
     ],
+    server: {
+      port: 5678,
+    },
     build: {
       rollupOptions: {
         input,

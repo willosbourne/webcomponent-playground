@@ -20,6 +20,37 @@
       flex-direction: column;
       align-items: center;
     }
+    .vanilla-counter {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .counter-value {
+      font-size: 2rem;
+      margin: 1rem 0;
+    }
+    .counter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .decrement-button, .increment-button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .decrement-button {
+      background-color: #ff6b6b;
+      color: white;
+    }
+    .increment-button {
+      background-color: #4ecdc4;
+      color: white;
+    }
     .btn {
       display: inline-block;
       padding: 0.5rem 1rem;
@@ -38,8 +69,19 @@
 <body>
   <h1>Counter Web Component - Vanilla JS</h1>
   <div class="container">
-    <counter-component></counter-component>
+    <counter-component id="vanilla-counter-component"></counter-component>
+
+    <div class="vanilla-counter">
+      <h2>Vanilla JS Counter</h2>
+      <div id="counter-value" class="counter-value">0</div>
+      <div class="counter-buttons">
+        <button id="decrement-button" class="decrement-button">-</button>
+        <button id="increment-button" class="increment-button">+</button>
+      </div>
+    </div>
+
     <p>This is a demonstration of the counter web component in a vanilla JavaScript application.</p>
+    <p>Both the web component and vanilla JS counters are synchronized.</p>
     <a href="/" class="btn" style="margin-top: 20px;">Back to Home</a>
   </div>
 
