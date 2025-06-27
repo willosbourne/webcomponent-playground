@@ -15,6 +15,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         : mode === 'angular'
           ? resolve(__dirname, 'angular-app/index.html')
           : {
+              main: resolve(__dirname, 'index.html'),
               vanilla: resolve(__dirname, 'vanilla-js/index.html'),
               react: resolve(__dirname, 'react-app/index.html'),
               svelte: resolve(__dirname, 'svelte-app/index.html'),
